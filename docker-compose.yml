@@ -1,0 +1,39 @@
+version: '3'
+services:
+    snips_api:
+        build: ./node_snips
+        ports: 
+            - "3602:3632"
+        environment:
+            DB_USER: postgres
+            DB_PASS: postgres
+            DB_HOST: users_db
+            DB_NAME: snipdb_dev
+            DB_PORT: 5432
+            USER_API_HOST: users_api
+            USER_API_PORT: 3600
+        links:
+            - users_db
+            - users_api
+    users_api:
+        build: ./node_users
+        ports:
+            - "3600:3631"
+        environment:
+            # will overide .env (?)
+            DB_USER: postgres
+            DB_PASS: postgres
+            DB_HOST: users_db
+            DB_NAME: userdb_dev
+            # keep connect to 5432 because already forwarded by 3601
+            DB_PORT: 5432
+        links:
+          - users_db
+    users_db:
+        image: "postgres:12-alpine"
+        ports:
+            - "3700:5432"
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: userdb_dev

@@ -1,0 +1,35 @@
+{
+  "name": "users",
+  "version": "1.0.0",
+  "description": "users api",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha tests/*.test.js --exit",
+    "test-coverage": "nyc mocha tests/*.test.js --exit",
+    "start": "node app.js",
+    "dbmigrate": "npx sequelize-cli db:migrate",
+    "dbcreate": "npx sequelize-cli db:create",
+    "dev": "nodemon app.js"
+  },
+  "author": "thejatmik",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.3.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-istanbul": "^0.1.1",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.2.1",
+    "sequelize": "^6.2.3"
+  }
+}

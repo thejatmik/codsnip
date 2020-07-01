@@ -1,0 +1,23 @@
+version: '3'
+services:
+    users_api:
+        build: .
+        ports:
+            - "3600:3631"
+        environment:
+            DB_USER: username
+            DB_PASS: pgpassword
+            DB_HOST: users_db
+            DB_NAME: userdb_development
+            DB_PORT: 3601
+        depends_on:
+            - users_db
+        restart: always
+    users_db:
+        image: "postgres:12-alpine"
+        ports:
+            - "3601:5432"
+        environment:
+            POSTGRES_USER: username
+            POSTGRES_PASSWORD: pgpassword
+            POSTGRES_DB: userdb_development
