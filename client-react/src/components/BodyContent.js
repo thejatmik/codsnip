@@ -7,6 +7,7 @@ import Jumbotron from "./landing/jumbotron.js";
 import LoginForm from "./landing/login.js";
 import RegisterForm from "./landing/register.js";
 import Dashboard from "./dashboard/Dashboard.js";
+import LogoutPage from "./landing/logout.js";
 
 function BodyContent() {
 	return (
@@ -20,6 +21,9 @@ function BodyContent() {
 				</Route>
 				<Route path="/login">
 					<LoginForm />
+				</Route>
+				<Route path="/logout">
+					<LogoutPage />
 				</Route>
 				<Route exact path="/">
 					<Jumbotron />

@@ -11,7 +11,8 @@ services:
             DB_NAME: snipdb_dev
             DB_PORT: 5432
             USER_API_HOST: users_api
-            USER_API_PORT: 3600
+            # to port used by express
+            USER_API_PORT: 3631
         links:
             - users_db
             - users_api

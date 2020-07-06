@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { userRegister } from "../../store/actions/user.js";
 
 function RegisterForm() {
+	const dispatch = useDispatch();
 	const history = useHistory();
 	const hasLogin = useSelector(state => state.user.hasLogin);
+	const stateError = useSelector(state => state.user.error);
 
 	if (hasLogin) {
 		history.push("/snip");
@@ -17,12 +20,18 @@ function RegisterForm() {
 
 	const handleSubmit = event => {
 		event.preventDefault();
+		dispatch({
+			type: "USER_RESET_ERROR"
+		});
 		setError("");
 		const notEmpty = inputName && inputPass && inputVerify;
-		const passVerify = inputPass == inputVerify;
+		const passVerify = inputPass === inputVerify;
 		if (notEmpty && passVerify) {
-			setInputName("");
-			setInputPass("");
+			let userPayload = {
+				name: inputName,
+				password: inputPass
+			};
+			dispatch(userRegister(userPayload));
 			setInputVerify("");
 		} else {
 			setError("invalid input");
@@ -52,6 +61,7 @@ function RegisterForm() {
 					data-testid="nameInput"
 				/>
 				<br />
+
 				<input
 					type="password"
 					placeholder="password"
@@ -61,6 +71,7 @@ function RegisterForm() {
 					data-testid="passInput"
 				/>
 				<br />
+
 				<input
 					type="password"
 					placeholder="verify password"
@@ -70,9 +81,10 @@ function RegisterForm() {
 					data-testid="verifyInput"
 				/>
 				<br />
+
 				<input type="submit" value="Register" data-testid="submitRegister" />
 				<br />
-				<span data-testid="registerError">{error}</span>
+				<span data-testid="registerError">{stateError || error}</span>
 			</form>
 		</div>
 	);

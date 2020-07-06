@@ -7,6 +7,7 @@ function LoginForm() {
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const hasLogin = useSelector(state => state.user.hasLogin);
+	const stateError = useSelector(state => state.user.error);
 
 	if (hasLogin) {
 		history.push("/snip");
@@ -19,6 +20,9 @@ function LoginForm() {
 	const handleSubmit = event => {
 		event.preventDefault();
 		setError("");
+		dispatch({
+			type: "USER_RESET_ERROR"
+		});
 		if (inputName && inputPass) {
 			dispatch(
 				userLogin({
@@ -26,8 +30,6 @@ function LoginForm() {
 					password: inputPass
 				})
 			);
-			setInputName("");
-			setInputPass("");
 		} else {
 			setError("invalid input");
 		}
@@ -42,7 +44,7 @@ function LoginForm() {
 	return (
 		<div>
 			<h4>Login</h4>
-			<p>{JSON.stringify(hasLogin)}</p>
+
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<input
 					type="text"
@@ -53,6 +55,7 @@ function LoginForm() {
 					data-testid="nameInput"
 				/>
 				<br />
+
 				<input
 					type="password"
 					placeholder="password"
@@ -62,9 +65,11 @@ function LoginForm() {
 					data-testid="passInput"
 				/>
 				<br />
+
 				<input type="submit" value="Login" data-testid="submitLogin" />
 				<br />
-				<span data-testid="errorLogin">{error}</span>
+
+				<span data-testid="errorLogin">{stateError || error}</span>
 			</form>
 			<div>
 				<small>

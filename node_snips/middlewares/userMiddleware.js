@@ -18,6 +18,7 @@ class userMiddleware {
       next(appError(401, 'unauthorized'));
       return;
     }
+    console.log(userApiHost, userApiPort, accessToken);
     axios({
       method: 'GET',
       headers: {accessToken: accessToken},
@@ -30,7 +31,7 @@ class userMiddleware {
         return;
       })
       .catch((err) => {
-        next(appError(401, 'unauthorized'));
+        next(appError(404, 'unauthorized'));
         return;
       });
   }
