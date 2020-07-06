@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { userLogin } from "../../store/actions/user.js";
 
 function LoginForm() {
+	const history = useHistory();
+	const dispatch = useDispatch();
+	const hasLogin = useSelector(state => state.user.hasLogin);
+
+	if (hasLogin) {
+		history.push("/snip");
+	}
+
 	const [inputName, setInputName] = useState("");
 	const [inputPass, setInputPass] = useState("");
 	const [error, setError] = useState("");
@@ -9,7 +20,12 @@ function LoginForm() {
 		event.preventDefault();
 		setError("");
 		if (inputName && inputPass) {
-			// send login cred here, then empty
+			dispatch(
+				userLogin({
+					name: inputName,
+					password: inputPass
+				})
+			);
 			setInputName("");
 			setInputPass("");
 		} else {
@@ -26,6 +42,7 @@ function LoginForm() {
 	return (
 		<div>
 			<h4>Login</h4>
+			<p>{JSON.stringify(hasLogin)}</p>
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<input
 					type="text"
@@ -49,6 +66,11 @@ function LoginForm() {
 				<br />
 				<span data-testid="errorLogin">{error}</span>
 			</form>
+			<div>
+				<small>
+					Don't have account? <a href="/register">Register</a>
+				</small>
+			</div>
 		</div>
 	);
 }

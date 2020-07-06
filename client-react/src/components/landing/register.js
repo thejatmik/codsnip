@@ -1,6 +1,15 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function RegisterForm() {
+	const history = useHistory();
+	const hasLogin = useSelector(state => state.user.hasLogin);
+
+	if (hasLogin) {
+		history.push("/snip");
+	}
+
 	const [inputName, setInputName] = useState("");
 	const [inputPass, setInputPass] = useState("");
 	const [inputVerify, setInputVerify] = useState("");

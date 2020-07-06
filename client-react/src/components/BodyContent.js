@@ -6,11 +6,15 @@ import classNames from "classnames";
 import Jumbotron from "./landing/jumbotron.js";
 import LoginForm from "./landing/login.js";
 import RegisterForm from "./landing/register.js";
+import Dashboard from "./dashboard/Dashboard.js";
 
 function BodyContent() {
 	return (
 		<div id="main-body" className={classNames("bg-black")}>
 			<Switch>
+				<Route path="/snip">
+					<Dashboard />
+				</Route>
 				<Route path="/register">
 					<RegisterForm />
 				</Route>
