@@ -1,11 +1,5 @@
 import React from "react";
-import {
-	Route,
-	Link,
-	Switch,
-	BrowserRouter as Router,
-	useRouteMatch
-} from "react-router-dom";
+import { Route, Link, Switch, useRouteMatch } from "react-router-dom";
 
 import Sniplist from "./sniplist/Sniplist.js";
 import NewSnipForm from "./sniplist/NewSnipForm.js";
@@ -14,11 +8,13 @@ import Sidebar from "./sidebar/Sidebar.js";
 function Dashboard() {
 	let { path } = useRouteMatch();
 	return (
-		<div>
+		<div className="container-fluid">
 			<h4>Dashboard placeholder</h4>
-			<div className="db-main">
-				<Router>
-					<Link to={`${path}/new`}>New Snip</Link>
+			<div className="row row-cols-2">
+				<div className="col-3 db-side">
+					<Sidebar />
+				</div>
+				<div className="col db-main">
 					<Switch>
 						<Route path={`${path}/new`}>
 							<NewSnipForm />
@@ -27,13 +23,11 @@ function Dashboard() {
 							<Sniplist />
 						</Route>
 						<Route path={`${path}/`}>
+							<Link to={`${path}/new`}>New Snip</Link>
 							<Sniplist />
 						</Route>
 					</Switch>
-				</Router>
-			</div>
-			<div className="db-side">
-				<Sidebar />
+				</div>
 			</div>
 		</div>
 	);

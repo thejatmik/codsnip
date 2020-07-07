@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { userLogin } from "../../store/actions/user.js";
 
 function LoginForm() {
@@ -73,7 +73,7 @@ function LoginForm() {
 			</form>
 			<div>
 				<small>
-					Don't have account? <a href="/register">Register</a>
+					Don't have account? <Link to="/register">Register</Link>
 				</small>
 			</div>
 		</div>

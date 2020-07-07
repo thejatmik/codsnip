@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import "../styles/test-color.scss";
 import classNames from "classnames";
 
 import Jumbotron from "./landing/jumbotron.js";
@@ -11,7 +10,7 @@ import LogoutPage from "./landing/logout.js";
 
 function BodyContent() {
 	return (
-		<div id="main-body" className={classNames("bg-black")}>
+		<div id="main-body">
 			<Switch>
 				<Route path="/snip">
 					<Dashboard />

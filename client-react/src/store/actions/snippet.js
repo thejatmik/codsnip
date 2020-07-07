@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchSnippets = () => {
+export const fetchNewSnippets = () => {
 	return dispatch => {
 		dispatch({
 			type: "SNIPS_RESET_ERROR"
@@ -13,8 +13,9 @@ export const fetchSnippets = () => {
 			url: "http://localhost:3602/allSnip"
 		})
 			.then(res => {
+				console.log(res.data);
 				dispatch({
-					type: "APPEND_SNIPS",
+					type: "SET_SNIPS",
 					payload: res.data.snippets
 				});
 			})

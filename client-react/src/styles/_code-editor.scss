@@ -1,0 +1,49 @@
+.code-edit-container {
+	position: relative;
+	min-height: 200px;
+	border: 1px solid hsl(0, 0%, 60%);
+	background-color: hsl(212, 35%, 95%);
+	margin: 1em 0;
+}
+
+.code-input,
+.code-output {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background: transparent;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+.code-input,
+.code-output,
+.token,
+.language-* {
+	font-size: 12px;
+}
+
+.code-input {
+	z-index: 3;
+	padding: 0.5em;
+	line-height: 1.5em;
+	font-family: monospace;
+}
+
+code {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0.5em;
+	display: block;
+	color: hsl(0, 0%, 40%);
+	font-size: 0.8rem;
+	font-family: "PT Mono", monospace;
+}
+
+pre[class*="language-"] {
+	margin: 0;
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { postSnippet } from "../../../store/actions/snippet.js";
+import CodeEditor from "./CodeEditor.js";
 
 function NewSnipForm() {
 	const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function NewSnipForm() {
 
 	return (
 		<div>
+			<Link to="/snip">Snips</Link>
 			<h4>New Snip Form</h4>
 			<form autoComplete="off" onSubmit={handleSubmit}>
 				<input
@@ -51,13 +53,7 @@ function NewSnipForm() {
 				/>
 				<br />
 
-				<input
-					type="text"
-					placeholder="Code"
-					value={inputCode}
-					onChange={handleCodeInput}
-				/>
-				<br />
+				<CodeEditor code={inputCode} setCode={setInputCode} />
 
 				<input
 					type="text"
@@ -74,7 +70,6 @@ function NewSnipForm() {
 				)}
 			</form>
 			<small>{error || stateError}</small>
-			<Link to="/snip">Snips</Link>
 		</div>
 	);
 }

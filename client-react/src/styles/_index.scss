@@ -1,4 +1,6 @@
 @import-normalize;
+@import "~bootstrap/scss/bootstrap";
+@import "test-color", "prism", "code-editor";
 
 * {
 	margin: 0;

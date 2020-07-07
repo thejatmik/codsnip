@@ -20,6 +20,11 @@ function userReducers(state = initialState, action) {
 				...state,
 				token: null
 			};
+		case "SET_HAS_LOGIN":
+			return {
+				...state,
+				hasLogin: payload
+			};
 		case "TOGGLE_HAS_LOGIN":
 			return {
 				...state,

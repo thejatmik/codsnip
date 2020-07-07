@@ -17,10 +17,15 @@ function snipReducers(state = initialState, action) {
 				...state,
 				snippets: [...payload, ...state.snippets]
 			};
-		case "RESET_SNIPS":
+		case "SET_SNIPS":
 			return {
 				...state,
 				snippets: payload
+			};
+		case "RESET_SNIPS":
+			return {
+				...state,
+				snippets: []
 			};
 		case "SNIPS_SET_ERROR":
 			return {

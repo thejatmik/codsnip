@@ -27,7 +27,8 @@ export const userLogin = userPayload => {
 					payload: res.data.accessToken
 				});
 				dispatch({
-					type: "TOGGLE_HAS_LOGIN"
+					type: "SET_HAS_LOGIN",
+					payload: true
 				});
 			})
 			.catch(err => {
@@ -71,7 +72,8 @@ export const userRegister = userPayload => {
 					payload: res.data.accessToken
 				});
 				dispatch({
-					type: "TOGGLE_HAS_LOGIN"
+					type: "SET_HAS_LOGIN",
+					payload: true
 				});
 			})
 			.catch(err => {
@@ -93,7 +95,8 @@ export const userRegister = userPayload => {
 export const userLogout = () => {
 	return dispatch => {
 		dispatch({
-			type: "TOGGLE_HAS_LOGIN"
+			type: "SET_HAS_LOGIN",
+			payload: false
 		});
 		dispatch({
 			type: "RESET_CRED"

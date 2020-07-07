@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchSnippets } from "../../../store/actions/snippet.js";
+import { fetchNewSnippets } from "../../../store/actions/snippet.js";
 import CardList from "./cardList.js";
 
 function Sniplist() {
@@ -9,13 +9,13 @@ function Sniplist() {
 	const snippets = useSelector(state => state.snips.snippets);
 
 	useEffect(() => {
-		dispatch(fetchSnippets());
+		dispatch(fetchNewSnippets());
 	}, [dispatch]);
 
 	let { lang } = useParams();
 	lang = lang || "all";
 
-	let snippetList = snippets ? <p>Empty</p> : <CardList />;
+	let snippetList = snippets ? <CardList /> : <p>Empty</p>;
 	return (
 		<div>
 			<h4>Sniplist: {lang}</h4>
