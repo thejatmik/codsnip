@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import classNames from "classnames";
 
 import Jumbotron from "./landing/jumbotron.js";
 import LoginForm from "./landing/login.js";

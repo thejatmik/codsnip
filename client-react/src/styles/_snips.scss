@@ -1,0 +1,35 @@
+.snips-list {
+	border: 1px solid black;
+	border-bottom: none;
+	padding: 0.5em;
+}
+
+.snips-card {
+	padding: 0.2em;
+	margin-bottom: 0.5em;
+	box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.25);
+}
+
+.snips-card-title {
+	font-size: 1.2rem;
+	font-weight: 500;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.snips-card-detail {
+	word-break: break-word;
+}
+
+.snips-input {
+	width: 100%;
+	padding: 0.2em;
+	textarea {
+		font-size: 0.9rem;
+	}
+}
+
+.snips-form {
+	padding-bottom: 1em;
+}

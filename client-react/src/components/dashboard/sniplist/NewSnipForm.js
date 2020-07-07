@@ -33,15 +33,12 @@ function NewSnipForm() {
 	const handleTitleInput = event => {
 		setInputTitle(event.target.value);
 	};
-	const handleCodeInput = event => {
-		setInputCode(event.target.value);
-	};
 	const handleDescInput = event => {
 		setInputDesc(event.target.value);
 	};
 
 	return (
-		<div>
+		<div className="snips-form">
 			<Link to="/snip">Snips</Link>
 			<h4>New Snip Form</h4>
 			<form autoComplete="off" onSubmit={handleSubmit}>
@@ -50,16 +47,17 @@ function NewSnipForm() {
 					placeholder="Title"
 					value={inputTitle}
 					onChange={handleTitleInput}
+					className="snips-input"
 				/>
 				<br />
 
 				<CodeEditor code={inputCode} setCode={setInputCode} />
 
-				<input
-					type="text"
+				<textarea
 					placeholder="Description"
 					value={inputDesc}
 					onChange={handleDescInput}
+					className="snips-input"
 				/>
 				<br />
 

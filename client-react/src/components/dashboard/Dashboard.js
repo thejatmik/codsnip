@@ -9,12 +9,11 @@ function Dashboard() {
 	let { path } = useRouteMatch();
 	return (
 		<div className="container-fluid">
-			<h4>Dashboard placeholder</h4>
 			<div className="row row-cols-2">
 				<div className="col-3 db-side">
 					<Sidebar />
 				</div>
-				<div className="col db-main">
+				<div className="col-9 pl-2 db-main">
 					<Switch>
 						<Route path={`${path}/new`}>
 							<NewSnipForm />

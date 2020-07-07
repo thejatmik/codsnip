@@ -1,10 +1,11 @@
 @import-normalize;
 @import "~bootstrap/scss/bootstrap";
-@import "test-color", "prism", "code-editor";
+@import "test-color", "prism", "code-editor", "snips";
 
 * {
 	margin: 0;
 	padding: 0;
+	font-family: monospace;
 }
 
 .button {
@@ -14,4 +15,9 @@
 #main-body {
 	margin-y: 0.5rem;
 	padding: 0.5rem;
+}
+
+.db-side,
+.db-main {
+	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.15);
 }
