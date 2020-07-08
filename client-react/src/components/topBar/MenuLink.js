@@ -11,7 +11,7 @@ function MenuLink(props) {
 	};
 
 	return (
-		<div className="menu-link" onClick={handleClick}>
+		<div tabindex={0} className="menu-link" onClick={handleClick}>
 			{label.toUpperCase()}
 			&nbsp;
 		</div>

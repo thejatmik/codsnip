@@ -6,7 +6,6 @@ import CardList from "./cardList.js";
 
 function Sniplist() {
 	const dispatch = useDispatch();
-	const snippets = useSelector(state => state.snips.snippets);
 
 	useEffect(() => {
 		dispatch(fetchNewSnippets());
@@ -15,11 +14,10 @@ function Sniplist() {
 	let { lang } = useParams();
 	lang = lang || "all";
 
-	let snippetList = snippets.length > 0 ? <CardList /> : <p>Empty</p>;
 	return (
 		<div>
 			<h4>Sniplist: {lang}</h4>
-			{snippetList}
+			<CardList />
 		</div>
 	);
 }

@@ -2,6 +2,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "test-color", "prism", "code-editor", "snips";
 @import "menu-bar", "sidebar";
+@import "jumbotron";
+@import "animations/anim";
 
 $header-height: 1.5rem;
 
@@ -18,9 +20,10 @@ $header-height: 1.5rem;
 #main-body {
 	margin-top: 0.5rem;
 }
-.shadow {
-	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.15);
-	height: 90vh;
+.landing-form {
+	height: 85vh;
+	display: flex;
+	justify-content: center;
 }
 
 .header {
@@ -45,4 +48,8 @@ $header-height: 1.5rem;
 	overflow: hidden;
 	top: $header-height;
 	position: sticky;
+}
+
+html {
+	scroll-behavior: smooth;
 }

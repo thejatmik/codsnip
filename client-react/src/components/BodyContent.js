@@ -15,13 +15,19 @@ function BodyContent() {
 					<Dashboard />
 				</Route>
 				<Route path="/register">
-					<RegisterForm />
+					<div className="landing-form">
+						<RegisterForm />
+					</div>
 				</Route>
 				<Route path="/login">
-					<LoginForm />
+					<div className="landing-form">
+						<LoginForm />
+					</div>
 				</Route>
 				<Route path="/logout">
-					<LogoutPage />
+					<div className="landing-form">
+						<LogoutPage />
+					</div>
 				</Route>
 				<Route exact path="/">
 					<Jumbotron />

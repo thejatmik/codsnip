@@ -8,6 +8,7 @@ function LoginForm() {
 	const dispatch = useDispatch();
 	const hasLogin = useSelector(state => state.user.hasLogin);
 	const stateError = useSelector(state => state.user.error);
+	const userLoading = useSelector(state => state.user.loading);
 
 	if (hasLogin) {
 		history.push("/snip");
@@ -40,6 +41,10 @@ function LoginForm() {
 	const handlePassInput = event => {
 		setInputPass(event.target.value);
 	};
+
+	if (userLoading) {
+		return <div className="loading-test loader"></div>;
+	}
 
 	return (
 		<div>

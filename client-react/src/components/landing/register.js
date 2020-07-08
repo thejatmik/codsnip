@@ -8,6 +8,7 @@ function RegisterForm() {
 	const history = useHistory();
 	const hasLogin = useSelector(state => state.user.hasLogin);
 	const stateError = useSelector(state => state.user.error);
+	const userLoading = useSelector(state => state.user.loading);
 
 	if (hasLogin) {
 		history.push("/snip");
@@ -47,6 +48,9 @@ function RegisterForm() {
 	const handleVerifyInput = event => {
 		setInputVerify(event.target.value);
 	};
+	if (userLoading) {
+		return <div className="loading-test loader"></div>;
+	}
 
 	return (
 		<div>

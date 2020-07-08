@@ -11,7 +11,9 @@ function LogoutPage() {
 
 	return (
 		<div>
-			<h4>You have been logged out</h4>
+			<h4>
+				You have been logged out<span className="blinking-cursor">_</span>
+			</h4>
 			<Link to="/login">Login</Link>
 		</div>
 	);

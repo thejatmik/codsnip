@@ -2,3 +2,16 @@
 	background-color: black;
 	color: white;
 }
+
+.loading-test {
+	z-index: 100;
+	background-color: rgba(255, 255, 255, 0.9);
+	position: absolute;
+	height: 80vh;
+	width: 100%;
+	right: 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	user-select: none;
+}

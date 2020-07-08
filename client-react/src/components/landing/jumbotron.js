@@ -2,8 +2,10 @@ import React from "react";
 
 function Jumbotron() {
 	return (
-		<div>
-			<h4 data-testid="jumbotronTitle">Jumbotron placeholder</h4>
+		<div id="jumbotron">
+			<h4 data-testid="jumbotronTitle">
+				Jumbotron placeholder<span className="blinking-cursor">|_█</span>
+			</h4>
 		</div>
 	);
 }
