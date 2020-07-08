@@ -1,0 +1,13 @@
+#menu-bar {
+	display: flex;
+	flex-direction: row;
+}
+
+.menu-link {
+	cursor: pointer;
+	color: #2222ee;
+}
+
+.menu-link:hover {
+	text-decoration: underline;
+}

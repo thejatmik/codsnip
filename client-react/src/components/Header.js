@@ -4,7 +4,7 @@ import TopBar from "./topBar/topBar.js";
 
 function Header() {
 	return (
-		<div>
+		<div className="header">
 			<TopBar />
 		</div>
 	);

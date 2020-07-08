@@ -15,7 +15,7 @@ function Sniplist() {
 	let { lang } = useParams();
 	lang = lang || "all";
 
-	let snippetList = snippets ? <CardList /> : <p>Empty</p>;
+	let snippetList = snippets.length > 0 ? <CardList /> : <p>Empty</p>;
 	return (
 		<div>
 			<h4>Sniplist: {lang}</h4>
